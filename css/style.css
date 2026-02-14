@@ -1,0 +1,181 @@
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#000;
+}
+
+/* ===== HEADER ===== */
+.header{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:100px;
+    background:#0a1a2f;
+    display:flex;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.header-container{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+}
+
+.logo h2{
+    color:#fff;
+}
+
+.menu-desktop a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.menu-desktop a:hover{
+    color:#00a8ff;
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+               url('../img/hero.jpg') center/cover;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:0 20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    max-width:800px;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 40px;
+    background:#fff;
+    color:#0a1a2f;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00a8ff;
+    color:#fff;
+}
+
+/* ===== SECCION ===== */
+.main{
+    padding-top:100px;
+}
+
+.seccion{
+    padding:100px 60px;
+    text-align:center;
+}
+
+.seccion h2{
+    font-size:2.5rem;
+}
+
+/* ===== GRID PRODUCTOS ===== */
+.grid-productos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:50px;
+}
+
+.producto{
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.producto img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.producto:hover{
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.producto:hover img{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    background:#0a1a2f;
+    color:#fff;
+    text-align:center;
+    padding:30px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+
+    .header{
+        height:80px;
+    }
+
+    .main{
+        padding-top:80px;
+    }
+
+    .header-container{
+        padding:0 20px;
+    }
+
+    .menu-desktop{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .grid-productos{
+        grid-template-columns:1fr;
+    }
+
+    .producto img{
+        height:350px;
+    }
+}
+/* ===== ANIMACIONES SCROLL ===== */
+
+.animar{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+
+.animar.visible{
+    opacity:1;
+    transform:translateY(0);
+}
