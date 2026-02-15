@@ -1825,18 +1825,22 @@ Comprar por WhatsApp
 </a>
 
 <script>
-function comprarWhatsApp(nombre, precio, referencia) {
+function abrirModal(id){
+    document.getElementById(id).style.display = "flex";
+}
 
-    let numero = "573203751393"; // ← CAMBIA POR TU NUMERO
+function cerrarModal(id){
+    document.getElementById(id).style.display = "none";
+}
 
-    let mensaje = "Hola 👋 estoy interesado en el siguiente producto:%0A%0A" +
-                  "🛍 Producto: " + nombre + "%0A" +
-                  "💰 Precio: $" + precio + "%0A" +
-                  "📦 Referencia: " + referencia + "%0A%0A" +
-                  "¿Está disponible?";
+function comprarWhatsApp(nombre, precio, referencia){
+    let numero = "573203751393"; // CAMBIA por tu número
+    let mensaje = "Hola, quiero comprar:\n\n" +
+                  "Producto: " + nombre + "\n" +
+                  "Precio: $" + precio + "\n" +
+                  "Referencia: " + referencia;
 
-    let url = "https://wa.me/" + numero + "?text=" + mensaje;
-
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 }
 </script>
