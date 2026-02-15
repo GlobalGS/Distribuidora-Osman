@@ -78,10 +78,27 @@ transform:scale(1.05);
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fill, 250px);
 gap:30px;
-justify-content:start;
 }
+/* 📱 CELULAR */
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        width:100%;
+    }
+}
+
+/* 💻 PC */
+@media(min-width:769px){
+    .grid{
+        grid-template-columns:repeat(auto-fill, 250px);
+        justify-content:start;
+    }
+}
+
 
 
 .card{
