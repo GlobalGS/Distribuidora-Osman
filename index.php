@@ -78,9 +78,11 @@ transform:scale(1.05);
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fill, 250px);
 gap:30px;
+justify-content:start;
 }
+
 
 .card{
 background:white;
@@ -196,12 +198,19 @@ animation:float 2s infinite ease-in-out;
 <div class="logo">
 <img src="img/DistribuidoraOsman.jpeg">
 <h2>Distribuidora Osman</h2>
+<div onclick="abrirCarrito()" style="cursor:pointer; position:relative;">
+🛒 
+<span id="contador-carrito" 
+style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12px;position:absolute;top:-10px;right:-15px;">
+0
+</span>
+</div>
+
 </div>
 
 <nav>
 <a href="#">Inicio</a>
 <a href="#productos">Productos</a>
-<a href="#">Contacto</a>
 </nav>
 </header>
 
@@ -219,6 +228,24 @@ animation:float 2s infinite ease-in-out;
 
 <section class="productos" id="productos">
 <h2>Nuestros Productos</h2>
+<div style="text-align:center;margin-bottom:30px;">
+    <input 
+        type="text" 
+        id="buscador"
+        placeholder="Buscar producto..."
+        onkeyup="filtrarProductos()"
+        style="
+        width:100%;
+        max-width:400px;
+        padding:12px;
+        border-radius:30px;
+        border:1px solid #ccc;
+        outline:none;
+        font-size:16px;
+        "
+    >
+</div>
+
 
 <div class="grid">
 
@@ -857,16 +884,16 @@ animation:float 2s infinite ease-in-out;
 <div class="card">
 <img src="img/productos/70.jpeg">
 <div class="card-content">
-<h3>TMarcador</h3>
+<h3>Marcador</h3>
 <div class="precio">$4.000</div>
 <button onclick="abrirModal('modal70')">Ver Detalles</button>
 </div>
 </div>
 <!-- PRODUCTO 71 -->
-<div class="card">
+<div class="card producto">
 <img src="img/productos/71.jpeg">
 <div class="card-content">
-<h3>TMochila Stitch</h3>
+<h3>Mochila Stitch</h3>
 <div class="precio">$26.000</div>
 <button onclick="abrirModal('modal71')">Ver Detalles</button>
 </div>
@@ -895,6 +922,20 @@ animation:float 2s infinite ease-in-out;
 <h3>tabla de picar</h3>
 <p>descripción.</p>
 <div class="precio">$6.500</div>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TABLA DE PICAR',6500,'GOL-1060')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TABLA DE PICAR',6500,'GOL-1060')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 <button onclick="comprarWhatsApp('TABLA DE PICAR','6500','GOL-1060')">
 Comprar por WhatsApp
 </button>
@@ -908,9 +949,20 @@ Comprar por WhatsApp
 <h3>Cortina</h3>
 <p>descripción.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('CORTINA','6500','FX-5232')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CORTINA',6500,'FX-5232')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CORTINA',6500,'FX-5232')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 
@@ -921,10 +973,21 @@ Comprar por WhatsApp
 <img src="img/productos/04.jpeg">
 <h3>Cortina</h3>
 <p>descripcion.</p>
-<div class="precio">$5.000</div>
-<button onclick="comprarWhatsApp('CORTINA','5000','FX-5404')">
-Comprar por WhatsApp
-</button>
+<div class="precio">$5.000
+</div><div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CORTINA',5000,'FX-5404')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CORTINA',5000,'FX-5404')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   5   =============== -->
@@ -935,9 +998,20 @@ Comprar por WhatsApp
 <h3>Pegante</h3>
 <p>descripcion.</p>
 <div class="precio">$2.000</div>
-<button onclick="comprarWhatsApp('PEGANTE','2000','FX-8770')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('PEGANTE',2000,'FX-8770')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('PEGANTE',2000,'FX-8770')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   6   =============== -->
@@ -948,9 +1022,20 @@ Comprar por WhatsApp
 <h3>Sombrilla</h3>
 <p>descripcion.</p>
 <div class="precio">$11.500</div>
-<button onclick="comprarWhatsApp('SOMBRILA','11500','ZF-00864')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('SOMBRILA',11500,'ZF-00864')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('SOMBRILA',11500,'ZF-00864')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   7   =============== -->
@@ -961,9 +1046,20 @@ Comprar por WhatsApp
 <h3>Cortina</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('CORTINA','6500','FX-5231')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CORTINA',6500,'FX-5231')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CORTINA',6500,'FX-5231')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   8   =============== -->
@@ -974,9 +1070,20 @@ Comprar por WhatsApp
 <h3>Cortina</h3>
 <p>descripcion.</p>
 <div class="precio">$16.000</div>
-<button onclick="comprarWhatsApp('CORTINA','16000','FX-3226')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CORTINA',16000,'FX-3226')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CORTINA',16000,'FX-3226')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   9   =============== -->
@@ -987,9 +1094,20 @@ Comprar por WhatsApp
 <h3>Cortina</h3>
 <p>descripcion.</p>
 <div class="precio">$5.000</div>
-<button onclick="comprarWhatsApp('CORTINA','5000','FX-5401')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CORTINA',5000,'FX-5401')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CORTINA',5000,'FX-5401')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   10   =============== -->
@@ -1000,9 +1118,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion</p>
 <div class="precio">$15.000</div>
-<button onclick="comprarWhatsApp('TERMO','15000','GOL-1727')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',15000,'GOL-1727')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',15000,'GOL-1727')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   11   =============== -->
@@ -1013,9 +1142,20 @@ Comprar por WhatsApp
 <h3>Vela</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('VELA','6500','FX7303')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('VELA',6500,'FX7303')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('VELA',6500,'FX7303')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   12   =============== -->
@@ -1026,9 +1166,20 @@ Comprar por WhatsApp
 <h3>Pebetero</h3>
 <p>descripcion.</p>
 <div class="precio">$6.800</div>
-<button onclick="comprarWhatsApp('PEBETERO','6800','FX-8899')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('PEBETERO',6800,'FX-8899')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('PEBETERO',6800,'FX-8899')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   13   =============== -->
@@ -1039,9 +1190,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$24.000</div>
-<button onclick="comprarWhatsApp('TERMO','24000','SUBJ-060')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',24000,'SUBJ-060')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',24000,'SUBJ-060')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   14   =============== -->
@@ -1052,9 +1214,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1728')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1728')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1728')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   15   =============== -->
@@ -1065,9 +1238,20 @@ Comprar por WhatsApp
 <h3>Termo </h3>
 <p>descripcion.</p>
 <div class="precio">$28.000</div>
-<button onclick="comprarWhatsApp('TERMO','28000','SBJU-0036')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',28000,'SBJU-0036')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',28000,'SBJU-0036')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   16   =============== -->
@@ -1078,9 +1262,20 @@ Comprar por WhatsApp
 <h3>Cartuchera</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('CARTUCHERA','6500','JC-2006')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CARTUCHERA',6500,'JC-2006')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CARTUCHERA',6500,'JC-2006')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   17   =============== -->
@@ -1091,9 +1286,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1739')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1739')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1739')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   18   =============== -->
@@ -1104,9 +1310,20 @@ Comprar por WhatsApp
 <h3>Colores</h3>
 <p>descripcion.</p>
 <div class="precio">$8.000</div>
-<button onclick="comprarWhatsApp('COLORES','8000','TB-8890-24')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('COLORES',8000,'TB-8890-24')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('COLORES',8000,'TB-8890-24')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   19   =============== -->
@@ -1117,9 +1334,20 @@ Comprar por WhatsApp
 <h3>Colores</h3>
 <p>descripcion.</p>
 <div class="precio">$8.000</div>
-<button onclick="comprarWhatsApp('COLORES','8000','SB-8894-24')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('COLORES',8000,'SB-8894-24')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('COLORES',8000,'SB-8894-24')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   20   =============== -->
@@ -1130,9 +1358,20 @@ Comprar por WhatsApp
 <h3>Marcador</h3>
 <p>descripcion.</p>
 <div class="precio">$4.500</div>
-<button onclick="comprarWhatsApp('MARCADOR','4500','SB-6949')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MARCADOR',4500,'SB-694')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MARCADOR',4500,'SB-694')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   21   =============== -->
@@ -1143,9 +1382,20 @@ Comprar por WhatsApp
 <h3>Crayola</h3>
 <p>descripcion.</p>
 <div class="precio">$4.000</div>
-<button onclick="comprarWhatsApp('CRAYOLA','4000','6088-12')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CRAYOLA',4000,'6088-12')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CRAYOLA',4000,'6088-12')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   22   =============== -->
@@ -1156,9 +1406,20 @@ Comprar por WhatsApp
 <h3>Marcador</h3>
 <p>descripcion.</p>
 <div class="precio">$2.500</div>
-<button onclick="comprarWhatsApp('MARCADOR','2500','HQX-816')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MARCADOR',2500,'HQX-816')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MARCADOR',2500,'HQX-816')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   23   =============== -->
@@ -1169,9 +1430,20 @@ Comprar por WhatsApp
 <h3>Bolso-Peluche</h3>
 <p>descripcion.</p>
 <div class="precio">$8.000</div>
-<button onclick="comprarWhatsApp('BOLSO-PELUCHE','8000','SB-1814')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('BOLSO-PELUCHE',8000,'SB-1814')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('BOLSO-PELUCHE',8000,'SB-1814')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   24   =============== -->
@@ -1182,9 +1454,20 @@ Comprar por WhatsApp
 <h3>Bolso-Peluche-Infantil</h3>
 <p>descripcion.</p>
 <div class="precio">$14.500</div>
-<button onclick="comprarWhatsApp('BOLSO-PELUCHE-INFANTIL','14500','SB-2695')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('BOLSO-PELUCHE-INFANTIL',14500,'SB-2695')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('BOLSO-PELUCHE-INFANTIL',14500,'SB-2695')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   25   =============== -->
@@ -1195,9 +1478,20 @@ Comprar por WhatsApp
 <h3>Colores</h3>
 <p>descripcion.</p>
 <div class="precio">$4.000</div>
-<button onclick="comprarWhatsApp('COLORES','4000','9040-1-12')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('COLORES',4000,'9040-1-12')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('COLORES',4000,'9040-1-12')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   26   =============== -->
@@ -1208,9 +1502,20 @@ Comprar por WhatsApp
 <h3>Termo P</h3>
 <p>descripcion.</p>
 <div class="precio">$24.000</div>
-<button onclick="comprarWhatsApp('TERMO P','24000','SBJU-006')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P',24000,'SBJU-006')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',24000,'SBJU-006')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   27   =============== -->
@@ -1221,9 +1526,20 @@ Comprar por WhatsApp
 <h3>Termo P</h3>
 <p>descripcion.</p>
 <div class="precio">$26.000</div>
-<button onclick="comprarWhatsApp('TERMO P','26000','SBJU-019')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P',26000,'SBJU-019')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',26000,'SBJU-019')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   28   =============== -->
@@ -1234,9 +1550,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$9.500</div>
-<button onclick="comprarWhatsApp('TERMO','9500','SB-8521')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',9500,'SB-8521')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',9500,'SB-8521')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   29   =============== -->
@@ -1247,9 +1574,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1735')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1735')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1735')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   30   =============== -->
@@ -1260,9 +1598,20 @@ Comprar por WhatsApp
 <h3>Termo P</h3>
 <p>descripcion.</p>
 <div class="precio">$24.500</div>
-<button onclick="comprarWhatsApp('TERMO P','24500','SBJU-018')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P',24500,'SBJU-018')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',24500,'SBJU-018')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   31   =============== -->
@@ -1273,9 +1622,20 @@ Comprar por WhatsApp
 <h3>termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1738')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1738')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1738')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   32   =============== -->
@@ -1286,9 +1646,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1740')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1740')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1740')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   33   =============== -->
@@ -1299,9 +1670,20 @@ Comprar por WhatsApp
 <h3>Vaso Pitilllo</h3>
 <p>descripcion.</p>
 <div class="precio">$16.000</div>
-<button onclick="comprarWhatsApp('VASO PITILLO','16000','FX-8533')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('VASO PITILLO',16000,'FX-8533')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('VASO PITILLO',16000,'FX-8533')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   34   =============== -->
@@ -1312,9 +1694,20 @@ Comprar por WhatsApp
 <h3>Marcador</h3>
 <p>descripcion.</p>
 <div class="precio">$4.000</div>
-<button onclick="comprarWhatsApp('MARCADOR','4000','JS-057')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MARCADOR',4000,'JS-057')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MARCADOR',4000,'JS-057')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   35   =============== -->
@@ -1325,9 +1718,20 @@ Comprar por WhatsApp
 <h3>Sombrilla</h3>
 <p>descripcion.</p>
 <div class="precio">$14.000</div>
-<button onclick="comprarWhatsApp('SOMBRILLA','14000','FX9057')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('SOMBRILLA',14000,'FX-9057')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('SOMBRILLA',14000,'FX-9057')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   36   =============== -->
@@ -1338,9 +1742,20 @@ Comprar por WhatsApp
 <h3>Sombrilla</h3>
 <p>descripcion.</p>
 <div class="precio">$14.000</div>
-<button onclick="comprarWhatsApp('SOMBRILLA','14000','FX-9056')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('SOMBRILLA',14000,'FX-9056')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('SOMBRILLA',14000,'FX-9056')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   37   =============== -->
@@ -1351,9 +1766,20 @@ Comprar por WhatsApp
 <h3>Lapicero</h3>
 <p>descripcion.</p>
 <div class="precio">$2.000</div>
-<button onclick="comprarWhatsApp('LAPICERO','2000','FX-5531')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('LAPICERO',2000,'FX-5531')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('LAPICERO',2000,'FX-5531')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   38   =============== -->
@@ -1364,9 +1790,20 @@ Comprar por WhatsApp
 <h3>Crayola</h3>
 <p>descripcion.</p>
 <div class="precio">$3.000</div>
-<button onclick="comprarWhatsApp('CRAYOLA','3000','LD-2007-12')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CRAYOLA',3000,'LD-2007-12')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CRAYOLA',3000,'LD-2007-12')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   39   =============== -->
@@ -1376,10 +1813,21 @@ Comprar por WhatsApp
 <img src="img/productos/39.jpeg">
 <h3>Portaminas</h3>
 <p>descripcion.</p>
-<div class="precio">3.000</div>
-<button onclick="comprarWhatsApp('PORTAMINAS','3000','QY-17')">
-Comprar por WhatsApp
-</button>
+<div class="precio">$3.000</div>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('PORTAMINAS',3000,'QY-17')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('PORTAMINAS',3000,'QY-17')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   40   =============== -->
@@ -1390,9 +1838,20 @@ Comprar por WhatsApp
 <h3>MArcadores</h3>
 <p>descripcion.</p>
 <div class="precio">$7.500</div>
-<button onclick="comprarWhatsApp('MARCADORES','7500','95000')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MARCADORES',7500,'95000')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MARCADORES',7500,'95000')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   41   =============== -->
@@ -1403,9 +1862,20 @@ Comprar por WhatsApp
 <h3>Colores</h3>
 <p>descripcion.</p>
 <div class="precio">$4.000</div>
-<button onclick="comprarWhatsApp('COLORES','4000','TB-8893-12/24')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('COLORES',4000,'TB-8893-12/24')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('COLORES',4000,'TB-8893-12/24')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 
@@ -1433,9 +1903,20 @@ Comprar por WhatsApp
 <h3>Bolso Silicona</h3>
 <p>descripcion.</p>
 <div class="precio">$4.800</div>
-<button onclick="comprarWhatsApp('BOLSO SILICONA','4800','SB-6993')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('BOLSO SILICONA',4800,'SB-6993')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('BOLSO SILICONA',4800,'SB-6993')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   44   =============== -->
@@ -1446,9 +1927,20 @@ Comprar por WhatsApp
 <h3>Gorro de Lana</h3>
 <p>descripcion.</p>
 <div class="precio">$5.500</div>
-<button onclick="comprarWhatsApp('GORRO DE LANA','5500','SB-4710')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('GORRO DE LANA',5500,'SB-4710')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('GORRO DE LANA',5500,'SB-4710')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   45   =============== -->
@@ -1459,9 +1951,20 @@ Comprar por WhatsApp
 <h3>Bolso Peluche Infantil</h3>
 <p>descripcion.</p>
 <div class="precio">$17.000</div>
-<button onclick="comprarWhatsApp('BOLSO PELUCHE-INFANTIL','17000','SB-6495')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('BOLSO PELUCHE-INFANTIL',17000,'SB-6495')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('BOLSO PELUCHE-INFANTIL',17000,'SB-6495')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   46   =============== -->
@@ -1472,9 +1975,20 @@ Comprar por WhatsApp
 <h3>Termo p</h3>
 <p>descripcion.</p>
 <div class="precio">$40.000</div>
-<button onclick="comprarWhatsApp('Termo P','40000','SBJU-037')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P',40000,'SBJU-037')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',40000,'SBJU-037')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   47   =============== -->
@@ -1485,9 +1999,20 @@ Comprar por WhatsApp
 <h3>Termo P</h3>
 <p>descripcion.</p>
 <div class="precio">$24.000</div>
-<button onclick="comprarWhatsApp('TERMO P','24000','SBJU-020')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P',24000,'SBJU-020')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',24000,'SBJU-020')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   48   =============== -->
@@ -1498,9 +2023,20 @@ Comprar por WhatsApp
 <h3>Termo P</h3>
 <p>descripcion.</p>
 <div class="precio">$24.000</div>
-<button onclick="comprarWhatsApp('TERMO P','24000','SBJU-009')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P',24000,'SBJU-009')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',24000,'SBJU-009')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   49   =============== -->
@@ -1511,9 +2047,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1731')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1731')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1731')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   50   =============== -->
@@ -1524,9 +2071,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1733')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1733')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1733')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   51   =============== -->
@@ -1537,9 +2095,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1736')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1736')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1736')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   52   =============== -->
@@ -1550,9 +2119,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1732')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1732')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1732')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   53   =============== -->
@@ -1563,9 +2143,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1730')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1730')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1730')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   54   =============== -->
@@ -1576,9 +2167,20 @@ Comprar por WhatsApp
 <h3>Lampara Solar Portatil</h3>
 <p>descripcion.</p>
 <div class="precio">$13.500</div>
-<button onclick="comprarWhatsApp('LAMPARA SOLAR-PORTATIL','13500','SH-5800T')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('LAMPARA SOLAR-PORTATIL',13500,'SH-5800T')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('LAMPARA SOLAR-PORTATIL',13500,'SH-5800T')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   55   =============== -->
@@ -1589,9 +2191,20 @@ Comprar por WhatsApp
 <h3>Marcador</h3>
 <p>descripcion.</p>
 <div class="precio">$4.000</div>
-<button onclick="comprarWhatsApp('MARCADOR','4000','YB-405')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MARCADOR',4000,'YB-405')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MARCADOR',4000,'YB-405')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   56   =============== -->
@@ -1602,9 +2215,20 @@ Comprar por WhatsApp
 <h3>Pelota</h3>
 <p>descripcion.</p>
 <div class="precio">$6.800</div>
-<button onclick="comprarWhatsApp('PELOTA','6800','SB-840')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('PELOTA',6800,'SB-840')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('PELOTA',6800,'SB-840')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   57   =============== -->
@@ -1615,9 +2239,20 @@ Comprar por WhatsApp
 <h3>Termo P</h3>
 <p>descripcion.</p>
 <div class="precio">$28.000</div>
-<button onclick="comprarWhatsApp('TERMO P','28000','SBJU-063')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO P', 28000,'SBJU-063')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO P',28000,'SBJU-063')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   58   =============== -->
@@ -1628,9 +2263,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$26.000</div>
-<button onclick="comprarWhatsApp('TERMO','26000','SBJU-064')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',26000,'SBJU-064')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',26000,'SBJU-064')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   59   =============== -->
@@ -1641,9 +2287,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1741')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1741')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1741')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 
@@ -1672,9 +2329,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1729')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1729')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1729')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   62   =============== -->
@@ -1685,9 +2353,20 @@ Comprar por WhatsApp
 <h3>Termo</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('TERMO','6500','GOL-1737')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('TERMO',6500,'GOL-1737')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('TERMO',6500,'GOL-1737')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   63   =============== -->
@@ -1698,9 +2377,20 @@ Comprar por WhatsApp
 <h3>Sombrilla</h3>
 <p>descripcion.</p>
 <div class="precio">$7.500</div>
-<button onclick="comprarWhatsApp('SOMBRILLA','7500','FX-700)">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('SOMBRILLA',7500,'FX-700')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('SOMBRILLA',7500,'FX-700')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 
@@ -1728,9 +2418,20 @@ Comprar por WhatsApp
 <h3>Cartuchera</h3>
 <p>descripcion.</p>
 <div class="precio">$6.500</div>
-<button onclick="comprarWhatsApp('CARTUCHERA','6500','SB-6940')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('CARTUCHERA',6500,'SB-6940')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('CARTUCHERA',6500,'SB-6940')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   66   =============== -->
@@ -1741,9 +2442,20 @@ Comprar por WhatsApp
 <h3>Sombrilla</h3>
 <p>descripcion.</p>
 <div class="precio">$14.000</div>
-<button onclick="comprarWhatsApp('SOMBRILLA','14000','FX-9051')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('SOMBRILLA',14000,'FX-9051')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('SOMBRILLA',14000,'FX-9051')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   67   =============== -->
@@ -1754,9 +2466,20 @@ Comprar por WhatsApp
 <h3>Lapicero</h3>
 <p>descripcion.</p>
 <div class="precio">$2.000</div>
-<button onclick="comprarWhatsApp('LAPICERO','2000','FX-5523')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('LAPICERO',2000,'FX-5523')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('LAPICERO',2000,'FX-5523')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 
@@ -1784,9 +2507,20 @@ Comprar por WhatsApp
 <h3>Colores</h3>
 <p>descripcion.</p>
 <div class="precio">$3.500</div>
-<button onclick="comprarWhatsApp('COLORES','3500','9016-15')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('COLORES',3500,'9016-15')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('COLORES',3500,'9016-15')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+</div>
 </div>
 </div>
 <!-- =============   70   =============== -->
@@ -1797,9 +2531,22 @@ Comprar por WhatsApp
 <h3>Marcador</h3>
 <p>descripcion.</p>
 <div class="precio">$4.000</div>
-<button onclick="comprarWhatsApp('MARCADOR','4000','MD-125C')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MARCADOR',4000,'MD-125C')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MARCADOR',4000,'MD-125C')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+
+</div>
+
 </div>
 </div>
 <!-- =============   71   =============== -->
@@ -1810,9 +2557,22 @@ Comprar por WhatsApp
 <h3>Mochila Stitch</h3>
 <p>descripcion.</p>
 <div class="precio">$26.000</div>
-<button onclick="comprarWhatsApp('MOCHILA STITCH','26000','CAT-108')">
-Comprar por WhatsApp
-</button>
+<div style="display:flex; gap:10px; margin-top:15px;">
+    
+    <!-- BOTÓN COMPRAR AHORA -->
+    <button onclick="comprarAhora('MOCHILA STITCH',26000,'CAT-108')" 
+    style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
+    Comprar Ahora
+    </button>
+
+    <!-- BOTÓN AGREGAR AL CARRITO -->
+    <button onclick="agregarCarrito('MOCHILA STITCH',26000,'CAT-108')" 
+    style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
+    Agregar al Carrito
+    </button>
+
+</div>
+
 </div>
 </div>
 
@@ -1820,7 +2580,7 @@ Comprar por WhatsApp
 
 <!-- DUPLICA DESDE AQUÍ PARA MÁS MODALES -->
 
-<a href="https://wa.me/573203751393" target="_blank" class="whatsapp">
+<a href="https://wa.me/573105749213" target="_blank" class="whatsapp">
 <img src="img/WhatsAppLogoDistribuidora.png">
 </a>
 
@@ -1833,17 +2593,188 @@ function cerrarModal(id){
     document.getElementById(id).style.display = "none";
 }
 
-function comprarWhatsApp(nombre, precio, referencia){
-    let numero = "573203751393"; // CAMBIA por tu número
-    let mensaje = "Hola, quiero comprar:\n\n" +
-                  "Producto: " + nombre + "\n" +
-                  "Precio: $" + precio + "\n" +
-                  "Referencia: " + referencia;
 
-    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+
+function comprarAhora(nombre, precio, referencia){
+
+    let numero = "573105749213"; // CAMBIA POR TU NUMERO
+
+    let mensaje = "Hola, quiero comprar este producto:%0A%0A";
+    mensaje += "Producto: " + nombre + "%0A";
+    mensaje += "Precio: $" + precio + "%0A";
+    mensaje += "Referencia: " + referencia + "%0A";
+
+    let url = "https://wa.me/" + numero + "?text=" + mensaje;
+
     window.open(url, "_blank");
 }
+
+//scrip de carrito
+
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardarCarrito(){
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function actualizarCarrito(){
+
+    let lista = document.getElementById("lista-carrito");
+    let totalElemento = document.getElementById("total-carrito");
+    let contador = document.getElementById("contador-carrito");
+
+    lista.innerHTML = "";
+    let total = 0;
+
+    carrito.forEach((producto, index) => {
+
+        total += producto.precio;
+
+        lista.innerHTML += `
+        <div style="margin-bottom:10px;">
+            <strong>${producto.nombre}</strong><br>
+            $${producto.precio.toLocaleString()}<br>
+            <button onclick="eliminarProducto(${index})"
+            style="background:red;color:white;border:none;padding:3px 6px;border-radius:5px;">
+            X
+            </button>
+        </div>
+        <hr>
+        `;
+    });
+
+    totalElemento.innerText = "Total: $" + total.toLocaleString();
+    contador.innerText = carrito.length;
+
+    guardarCarrito();
+}
+
+function agregarCarrito(nombre, precio, referencia){
+
+    carrito.push({
+        nombre: nombre,
+        precio: precio,
+        referencia: referencia
+    });
+
+    actualizarCarrito();
+    alert("Producto agregado al carrito 🛒");
+}
+
+function eliminarProducto(index){
+    carrito.splice(index,1);
+    actualizarCarrito();
+}
+
+function abrirCarrito(){
+    document.getElementById("carrito").style.right = "0";
+}
+
+function cerrarCarrito(){
+    document.getElementById("carrito").style.right = "-400px";
+}
+
+function enviarCarrito(){
+
+    if(carrito.length === 0){
+        alert("El carrito está vacío");
+        return;
+    }
+
+    let numero = "573105749213"; // CAMBIA POR TU NUMERO
+    let mensaje = "Hola, quiero hacer este pedido:%0A%0A";
+
+    carrito.forEach(producto => {
+        mensaje += "Producto: " + producto.nombre + "%0A";
+        mensaje += "Precio: $" + producto.precio + "%0A";
+        mensaje += "Referencia: " + producto.referencia + "%0A%0A";
+    });
+
+    window.open("https://wa.me/" + numero + "?text=" + mensaje, "_blank");
+
+    carrito = [];
+    actualizarCarrito();
+}
+
+actualizarCarrito();
+
+
+// buscador de productos 
+
+function filtrarProductos(){
+
+    let input = document.getElementById("buscador").value.toLowerCase();
+    let productos = document.querySelectorAll(".card");
+
+    productos.forEach(producto => {
+
+        let nombre = producto.querySelector("h3").textContent.toLowerCase();
+
+        if(nombre.includes(input)){
+            producto.style.display = "block";
+        }else{
+            producto.style.display = "none";
+        }
+
+    });
+
+}
+
+
 </script>
+
+
+
+
+
+<div id="carrito" style="
+position:fixed;
+right:-400px;
+top:0;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+padding:20px;
+transition:0.4s;
+z-index:3000;
+overflow-y:auto;
+">
+
+<h2>Tu Carrito</h2>
+<hr>
+
+<div id="lista-carrito"></div>
+
+<h3 id="total-carrito" style="margin-top:15px;">Total: $0</h3>
+
+<button onclick="enviarCarrito()" style="
+width:100%;
+background:#25D366;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+margin-top:10px;
+">
+Enviar Pedido
+</button>
+
+<button onclick="cerrarCarrito()" style="
+width:100%;
+background:#111;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+margin-top:5px;
+">
+Cerrar
+</button>
+
+</div>
 
 
 </body>

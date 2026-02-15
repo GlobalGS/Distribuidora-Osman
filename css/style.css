@@ -98,12 +98,26 @@ body{
 }
 
 /* ===== GRID PRODUCTOS ===== */
-.grid-productos{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-    margin-top:50px;
+.grid{
+display:grid;
+gap:30px;
 }
+
+/* SOLO EN PC */
+@media(min-width:1024px){
+.grid{
+    grid-template-columns:repeat(auto-fill,minmax(250px,250px));
+    justify-content:center;
+}
+}
+
+/* CELULAR Y TABLET */
+@media(max-width:1023px){
+.grid{
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+}
+
 
 .producto{
     border-radius:20px;
