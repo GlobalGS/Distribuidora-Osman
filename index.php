@@ -953,9 +953,6 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
     Agregar al Carrito
     </button>
 </div>
-<button onclick="comprarWhatsApp('TABLA DE PICAR','6500','GOL-1060')">
-Comprar por WhatsApp
-</button>
 </div>
 </div>
 <!-- =============   2   =============== -->
