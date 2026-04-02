@@ -113,8 +113,11 @@ transition:0.3s;
 
 .card img{
 width:100%;
-height:250px;
-object-fit:cover;
+height:auto;
+max-height:250px;
+object-fit:contain;
+display:block;
+margin:auto;
 }
 
 .card-content{padding:20px;}
@@ -154,13 +157,11 @@ position:relative;
 }
 
 .modal-content img{
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:10px;
-margin-bottom:15px;
+    width:100%;
+    height:auto;
+    max-height:300px;
+    object-fit: contain;
 }
-
 .cerrar{
 position:absolute;
 top:10px;
@@ -213,7 +214,7 @@ animation:float 2s infinite ease-in-out;
 
 <header>
 <div class="logo">
-<img src="img/DistribuidoraOsman.jpeg">
+<img src="img/DistribuidoraLogo.png">
 <h2>Distribuidora Osman</h2>
 <div onclick="abrirCarrito()" style="cursor:pointer; position:relative;">
 🛒 
@@ -233,12 +234,12 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 
 <section class="hero">
 <div>
-<img src="img/DistribuidoraOsman.jpeg" class="hero-logo">
+<img src="img/DistribuidoraLogo.png" class="hero-logo">
 <h1>Productos Importados de China</h1>
-<p>Los mejores precios para tu negocio
- 
+<p style="margin-bottom:20px;">
+Los mejores precios para tu negocio
 </p>
-<p>- </p>
+
 <a href="#productos" class="btn">Ver Productos</a>
 </div>
 </section>
@@ -937,7 +938,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal01')">&times;</span>
 <img src="img/productos/01.jpeg">
 <h3>tabla de picar</h3>
-<p>descripción.</p>
+<p>tabla de picar.</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -955,13 +956,16 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 </div>
 </div>
 </div>
+
+<!-- =============   2   =============== -->
+
 <!-- =============   2   =============== -->
 <div id="modal02" class="modal">
 <div class="modal-content">
 <span class="cerrar" onclick="cerrarModal('modal02')">&times;</span>
 <img src="img/productos/02.jpeg">
 <h3>Cortina</h3>
-<p>descripción.</p>
+<p>Cortina.</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -986,8 +990,8 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal04')">&times;</span>
 <img src="img/productos/04.jpeg">
 <h3>Cortina</h3>
-<p>descripcion.</p>
-<div class="precio">$5.000
+<p>Cortina.</p>
+<div class="precio">$5.000</div>
 </div><div style="display:flex; gap:10px; margin-top:15px;">
     
     <!-- BOTÓN COMPRAR AHORA -->
@@ -1010,7 +1014,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal05')">&times;</span>
 <img src="img/productos/05.jpeg">
 <h3>Pegante</h3>
-<p>descripcion.</p>
+<p>PEGANTE ATRAPA MOSCAS.</p>
 <div class="precio">$2.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1034,7 +1038,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal06')">&times;</span>
 <img src="img/productos/06.jpeg">
 <h3>Sombrilla</h3>
-<p>descripcion.</p>
+<p>SOMBRILLA.</p>
 <div class="precio">$11.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1058,7 +1062,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal07')">&times;</span>
 <img src="img/productos/07.jpeg">
 <h3>Cortina</h3>
-<p>descripcion.</p>
+<p>CORTINA.</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1082,7 +1086,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal08')">&times;</span>
 <img src="img/productos/08.jpeg">
 <h3>Cortina</h3>
-<p>descripcion.</p>
+<p>CORTINA.</p>
 <div class="precio">$16.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1106,7 +1110,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal09')">&times;</span>
 <img src="img/productos/09.jpeg">
 <h3>Cortina</h3>
-<p>descripcion.</p>
+<p>CORTINA.</p>
 <div class="precio">$5.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1130,7 +1134,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal10')">&times;</span>
 <img src="img/productos/10.jpeg">
 <h3>Termo</h3>
-<p>descripcion</p>
+<p>TERMO ACERO INOXIDABLE ANTIDERRAME TERMICO CON 3 POCILLOS </p>
 <div class="precio">$15.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1154,18 +1158,18 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal11')">&times;</span>
 <img src="img/productos/11.jpeg">
 <h3>Vela</h3>
-<p>descripcion.</p>
+<p>VELA.</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
     <!-- BOTÓN COMPRAR AHORA -->
-    <button onclick="comprarAhora('VELA',6500,'FX7303')" 
+    <button onclick="comprarAhora('VELA',6500,'FX-7303')" 
     style="flex:1; background:#25D366; color:white; border:none; padding:10px; border-radius:8px;">
     Comprar Ahora
     </button>
 
     <!-- BOTÓN AGREGAR AL CARRITO -->
-    <button onclick="agregarCarrito('VELA',6500,'FX7303')" 
+    <button onclick="agregarCarrito('VELA',6500,'FX-7303')" 
     style="flex:1; background:#111; color:white; border:none; padding:10px; border-radius:8px;">
     Agregar al Carrito
     </button>
@@ -1178,7 +1182,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal12')">&times;</span>
 <img src="img/productos/12.jpeg">
 <h3>Pebetero</h3>
-<p>descripcion.</p>
+<p>PEBETERO.</p>
 <div class="precio">$6.800</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1202,7 +1206,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal13')">&times;</span>
 <img src="img/productos/13.jpeg">
 <h3>Termo</h3>
-<p>descripcion.</p>
+<p>TERMO ACERO INOXIDABLE ANTIDERRAME TERMICO 30 OZ.</p>
 <div class="precio">$24.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1226,7 +1230,7 @@ style="background:red;color:white;border-radius:50%;padding:3px 8px;font-size:12
 <span class="cerrar" onclick="cerrarModal('modal14')">&times;</span>
 <img src="img/productos/14.jpeg">
 <h3>Termo</h3>
-<p>descripcion.</p>
+<p>TERMO PLASTICO MULTICOLOR.</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
