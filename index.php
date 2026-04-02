@@ -1254,7 +1254,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal15')">&times;</span>
 <img src="img/productos/15.jpeg">
 <h3>Termo </h3>
-<p>descripcion.</p>
+<p></p>
 <div class="precio">$28.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1278,7 +1278,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal16')">&times;</span>
 <img src="img/productos/16.jpeg">
 <h3>Cartuchera</h3>
-<p>descripcion.</p>
+<p>CARTUCHERA</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1302,7 +1302,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal17')">&times;</span>
 <img src="img/productos/17.jpeg">
 <h3>Termo</h3>
-<p>descripcion.</p>
+<p>TERMO</p>
 <div class="precio">$6.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1326,7 +1326,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal18')">&times;</span>
 <img src="img/productos/18.jpeg">
 <h3>Colores</h3>
-<p>descripcion.</p>
+<p>COLORES</p>
 <div class="precio">$8.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1350,7 +1350,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal19')">&times;</span>
 <img src="img/productos/19.jpeg">
 <h3>Colores</h3>
-<p>descripcion.</p>
+<p>COLORES</p>
 <div class="precio">$8.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1374,7 +1374,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal20')">&times;</span>
 <img src="img/productos/20.jpeg">
 <h3>Marcador</h3>
-<p>descripcion.</p>
+<p>MARCADOR</p>
 <div class="precio">$4.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1398,7 +1398,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal21')">&times;</span>
 <img src="img/productos/21.jpeg">
 <h3>Crayola</h3>
-<p>descripcion.</p>
+<p>CRAYOLA</p>
 <div class="precio">$4.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1422,7 +1422,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal22')">&times;</span>
 <img src="img/productos/22.jpeg">
 <h3>Marcador</h3>
-<p>descripcion.</p>
+<p>MARCADOR</p>
 <div class="precio">$2.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1446,7 +1446,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal23')">&times;</span>
 <img src="img/productos/23.jpeg">
 <h3>Bolso-Peluche</h3>
-<p>descripcion.</p>
+<p>BOLSO-PELUCHE</p>
 <div class="precio">$8.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1470,7 +1470,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal24')">&times;</span>
 <img src="img/productos/24.jpeg">
 <h3>Bolso-Peluche-Infantil</h3>
-<p>descripcion.</p>
+<p>BOLSO PELUCHE - INFANTIL</p>
 <div class="precio">$14.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1494,7 +1494,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal25')">&times;</span>
 <img src="img/productos/25.jpeg">
 <h3>Colores</h3>
-<p>descripcion.</p>
+<p>COLORES</p>
 <div class="precio">$4.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
