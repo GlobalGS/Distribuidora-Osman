@@ -1518,7 +1518,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal26')">&times;</span>
 <img src="img/productos/26.jpeg">
 <h3>Termo P</h3>
-<p>descripcion.</p>
+<p></p>
 <div class="precio">$24.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1542,7 +1542,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal27')">&times;</span>
 <img src="img/productos/27.jpeg">
 <h3>Termo P</h3>
-<p>descripcion.</p>
+<p></p>
 <div class="precio">$26.000</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
@@ -1566,7 +1566,7 @@ Los mejores precios para tu negocio
 <span class="cerrar" onclick="cerrarModal('modal28')">&times;</span>
 <img src="img/productos/28.jpeg">
 <h3>Termo</h3>
-<p>descripcion.</p>
+<p>TERMO</p>
 <div class="precio">$9.500</div>
 <div style="display:flex; gap:10px; margin-top:15px;">
     
