@@ -191,16 +191,46 @@ padding:20px;
 margin-top:40px;
 }
 
-/* WHATSAPP FLOAT */
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 width:65px;
+z-index:3000;
+animation:float 2s infinite ease-in-out;
+transition:0.3s;
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
+}
+
+.whatsapp img{
+width:100%;
+filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+/* INSTAGRAM FLOAT */
+.instagram{
+position:fixed;
+bottom:95px;
+right:20px;
+width:55px;
 animation:float 2s infinite ease-in-out;
 }
 
-.whatsapp img{width:100%;}
+.instagram img{width:100%;}
+
+/* TIKTOK FLOAT */
+.tiktok{
+position:fixed;
+bottom:160px;
+right:20px;
+width:55px;
+animation:float 2s infinite ease-in-out;
+}
+
+.tiktok img{width:100%;}
 
 @keyframes float{
 0%{transform:translateY(0);}
@@ -264,6 +294,15 @@ Los mejores precios para tu negocio
     >
 </div>
 
+<!-- INSTAGRAM -->
+<a href="https://www.instagram.com/distribuidora_osman?igsh=MWFyb3ZmeW1oNmxhNQ==" target="_blank" class="instagram">
+    <img src="img/mas/instagram.png" alt="Instagram">
+</a>
+
+<!-- TIKTOK -->
+<a href="https://www.tiktok.com/@distribuidora_osman?_r=1&_t=ZS-95KBYblQSCy" target="_blank" class="tiktok">
+    <img src="img/mas/tik-tok.png" alt="TikTok">
+</a>
 
 <div class="grid">
 
@@ -2599,7 +2638,7 @@ Comprar por WhatsApp
 <!-- DUPLICA DESDE AQUÍ PARA MÁS MODALES -->
 
 <a href="https://wa.me/573105749213" target="_blank" class="whatsapp">
-<img src="img/WhatsAppLogoDistribuidora.png">
+<img src="img/mas/whatsApp.png">
 </a>
 
 <script>
