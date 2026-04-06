@@ -237,6 +237,50 @@ animation:float 2s infinite ease-in-out;
 50%{transform:translateY(-8px);}
 100%{transform:translateY(0);}
 }
+
+
+@media(max-width:768px){
+
+    .whatsapp{
+        width:50px;
+        bottom:15px;
+        right:15px;
+    }
+
+    .instagram{
+        width:45px;
+        bottom:80px;
+        right:15px;
+    }
+
+    .tiktok{
+        width:45px;
+        bottom:140px;
+        right:15px;
+    }
+
+}
+
+/* TOAST NOTIFICACIÓN */
+.toast{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%) translateY(100px);
+background:#111;
+color:white;
+padding:12px 20px;
+border-radius:30px;
+font-size:14px;
+opacity:0;
+transition:0.4s;
+z-index:4000;
+}
+
+.toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0);
+}
 </style>
 </head>
 
@@ -2638,7 +2682,7 @@ Comprar por WhatsApp
 <!-- DUPLICA DESDE AQUÍ PARA MÁS MODALES -->
 
 <a href="https://wa.me/573105749213" target="_blank" class="whatsapp">
-<img src="img/mas/whatsApp.png">
+<img src="img/mas/whatsapp.png">
 </a>
 
 <script>
@@ -2717,7 +2761,7 @@ function agregarCarrito(nombre, precio, referencia){
     });
 
     actualizarCarrito();
-    alert("Producto agregado al carrito 🛒");
+    mostrarNotificacion("Producto agregado al carrito 🛒");
 }
 
 function eliminarProducto(index){
@@ -2779,6 +2823,15 @@ function filtrarProductos(){
 
 }
 
+function mostrarNotificacion(mensaje){
+    let toast = document.getElementById("toast");
+    toast.innerText = mensaje;
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    }, 2500);
+}
 
 </script>
 
@@ -2832,7 +2885,7 @@ Cerrar
 </button>
 
 </div>
-
+<div id="toast" class="toast"></div>
 
 </body>
 </html>
